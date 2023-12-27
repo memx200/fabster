@@ -14,3 +14,7 @@ function calculateSum() {
     var sum = num1 + num2 + num3 + num4;
     document.getElementById('result').textContent = 'Sum: ' + sum;
 }
+
+function goBack() {
+    window.location.href = '../index.html';
+}
