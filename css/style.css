@@ -10,7 +10,7 @@ button {
     font-size: 16px;
     height: 200px;
     cursor: pointer;
-    background-color: chartreuse;
+    background-color: rgb(255, 0, 0);
 }
 
 @keyframes clickAnimation {
