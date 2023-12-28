@@ -1,14 +1,47 @@
 <head>
-    <title>Simple Calculator</title>
+    <title>Einzelfundament</title>
 </head>
 <body>
-    <h1>Calc 200 000 Module</h1>
+    <h1>Einzelfundament</h1>
+    <p>Berechnung nach SIA 262:2013</p>
+
+    <label for="num1">Beton fcd [N/mm&sup2;]</label>
     <input type="number" id="num1">
+    <br><br>
+    <label for="num2">Beton &tau;cd [N/mm&sup2;]</label>
     <input type="number" id="num2">
+    <br><br>
+    <label for="num3">Betonstahl fsd [N/mm&sup2;]</label>
     <input type="number" id="num3">
+    <br><br>
+    <label for="num4">Bodenpressung &sigma;bd [kN/m&sup2;]</label>
     <input type="number" id="num4">
-    <button onclick="calculateSum()">Calculate Sum</button>
-    <div id="result"></div>
+    <br><br>
+    <label for="num5">Länge & Breite [m]</label>
+    <input type="number" id="num5">
+    <br><br>
+    <label for="num6">Höhe [m]</label>
+    <input type="number" id="num6">
+    <br><br>
+    <label for="num7">Überdeckung [mm]</label>
+    <input type="number" id="num7">
+    <br><br>
+    <label for="num8">Bewehrung [mm&sup2;/m]</label>
+    <input type="number" id="num8">
+    <br><br>
+    <img src="Einzelfundament.JPG" alt="Einzelfundament" style="width:500px;height:250px">
+    <br><br>
+    <p>Ergebnisse Tragsicherheit</p>
+    <br><br>
+    <button onclick="calculateMult1()">Calculate Multiplication</button>
+    <div id="result1"></div>
+    <br><br>
+    <button onclick="calculationMult2()">Biegemoment</button>
+    <div id="result2"></div>
+    <br><br>
+    <button onclick="calculationMult3()">Querkraft</button>
+    <div id="result3"></div>
+    <br><br>
     <button onclick="goBack()">Back to Main</button>
     <script src="../js/modul_1.js"></script>
 </body>
