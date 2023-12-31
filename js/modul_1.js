@@ -1,4 +1,4 @@
-document.getElementById('redirectButton').addEventListener('click', function() {
+document.getElementById('redirectButton1').addEventListener('click', function() {
     this.classList.add('clicked');
     setTimeout(function() {
         window.location.href = 'module/module1.html';
