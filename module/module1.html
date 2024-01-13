@@ -1,148 +1,166 @@
-<head>  
-    <title>Einzelfundament</title>
-    <link rel="stylesheet" href="bootstrap-assets/css/bootstrap.min.css"> 
+<head>
+  <title>Einzelfundament</title>
+  <link rel="stylesheet" href="bootstrap-assets/css/bootstrap.min.css">
 </head>
-<body>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Einzelfundament</a>
-        </div>
-      </nav>      
-    <h1></h1>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Berechnung nach SIA 262:2013</a>
-        </div>
-      </nav>
-    <p></p>
 
-    <div class="row pt-3 g-3 align-items-center">
-        <div class="col-auto">
-          <label for="num1" class="col-form-label px-3">Beton-Druckfestigkeit fcd</label>
-        </div>
-        <div class="col-auto">
-          <input type="num1" id="num1" class="form-control" aria-describedby="num1Kasten">
-        </div>
-        <div class="col-auto">
-          <span id="num1einheit" class="form-text">
-            N/mm&sup2;  
-          </span>
-        </div>
+<body>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Einzelfundament</a>
     </div>
-    <div class="row pt-3 g-3 align-items-center">
-        <div class="col-auto">
-          <label for="num2" class="col-form-label px-3">Beton-Schubspannung &tau;cd</label>
-        </div>
-        <div class="col-auto">
-          <input type="num2" id="num2" class="form-control" aria-describedby="num2Kasten">
-        </div>
-        <div class="col-auto">
-          <span id="num2einheit" class="form-text">
-            N/mm&sup2;  
-          </span>
-        </div>
+  </nav>
+  <h1></h1>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Berechnung nach SIA 262:2013</a>
     </div>
-    <div class="row pt-3 g-3 align-items-center">
-        <div class="col-auto">
-          <label for="num3" class="col-form-label px-3">Betonstahl-Fliessgrenze fsd</label>
-        </div>
-        <div class="col-auto">
-          <input type="num3" id="num3" class="form-control" aria-describedby="num3Kasten">
-        </div>
-        <div class="col-auto">
-          <span id="num3einheit" class="form-text">
-            N/mm&sup2;  
-          </span>
-        </div>
+  </nav>
+  <img src="Einzelfundament.JPG" alt="Einzelfundament" class="px-3" style="width:500px;height:250px">
+  <br><br>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Material</a>
     </div>
-    <div class="row pt-3 g-3 align-items-center">
-        <div class="col-auto">
-          <label for="num4" class="col-form-label px-3">Bodenpressung &sigma;bd</label>
-        </div>
-        <div class="col-auto">
-          <input type="num4" id="num4" class="form-control" aria-describedby="num4Kasten">
-        </div>
-        <div class="col-auto">
-          <span id="num4einheit" class="form-text">
-            [kN/m&sup2;] 
-          </span>
-        </div>
+  </nav>
+
+  <div class="row pt-3 g-3 align-items-center">
+    <div class="col-auto">
+      <label for="num1" class="col-form-label px-3">Beton-Druckfestigkeit fcd</label>
     </div>
+    <div class="col-auto">
+      <input type="num1" id="num1" class="form-control" aria-describedby="num1Kasten">
     </div>
-    <div class="row pt-3 g-3 align-items-center">
-        <div class="col-auto">
-            <label for="num5" class="col-form-label px-3">Länge & Breite</label>
-         </div>
-          <div class="col-auto">
-           <input type="num5" id="num5" class="form-control" aria-describedby="num5Kasten">
-         </div>
-         <div class="col-auto">
-           <span id="num5einheit" class="form-text">
-             [m] 
-           </span>
+    <div class="col-auto">
+      <span id="num1einheit" class="form-text">
+        N/mm&sup2;
+      </span>
     </div>
+  </div>
+  <div class="row pt-3 g-3 align-items-center">
+    <div class="col-auto">
+      <label for="num2" class="col-form-label px-3">Beton-Schubspannung &tau;cd</label>
     </div>
-    <div class="row pt-3 g-3 align-items-center">
-        <div class="col-auto">
-            <label for="num6" class="col-form-label px-3">Höhe</label>
-         </div>
-          <div class="col-auto">
-           <input type="num6" id="num6" class="form-control" aria-describedby="num6Kasten">
-         </div>
-         <div class="col-auto">
-           <span id="num6einheit" class="form-text">
-             [m] 
-           </span>
+    <div class="col-auto">
+      <input type="num2" id="num2" class="form-control" aria-describedby="num2Kasten">
     </div>
+    <div class="col-auto">
+      <span id="num2einheit" class="form-text">
+        N/mm&sup2;
+      </span>
     </div>
-    <div class="row pt-3 g-3 align-items-center">
-        <div class="col-auto">
-            <label for="num7" class="col-form-label px-3">Überdeckung</label>
-         </div>
-          <div class="col-auto">
-           <input type="num7" id="num7" class="form-control" aria-describedby="num7Kasten">
-         </div>
-         <div class="col-auto">
-           <span id="num7einheit" class="form-text">
-             [m] 
-           </span>
+  </div>
+  <div class="row pt-3 g-3 align-items-center">
+    <div class="col-auto">
+      <label for="num3" class="col-form-label px-3">Betonstahl-Fliessgrenze fsd</label>
     </div>
+    <div class="col-auto">
+      <input type="num3" id="num3" class="form-control" aria-describedby="num3Kasten">
     </div>
-    <div class="row pt-3 g-3 align-items-center">
-        <div class="col-auto">
-            <label for="num8" class="col-form-label px-3">Überdeckung</label>
-         </div>
-          <div class="col-auto">
-           <input type="num8" id="num8" class="form-control" aria-describedby="num8Kasten">
-         </div>
-         <div class="col-auto">
-           <span id="num8einheit" class="form-text">
-             [mm&sup2;/m] 
-           </span>
+    <div class="col-auto">
+      <span id="num3einheit" class="form-text">
+        N/mm&sup2;
+      </span>
     </div>
+  </div>
+  <div class="row pt-3 g-3 align-items-center">
+    <div class="col-auto">
+      <label for="num4" class="col-form-label px-3">Bodenpressung &sigma;bd</label>
     </div>
-    <div class="row pt-3 g-3 align-items-center">
-        <div class="col-auto">
-            <label for="num9" class="col-form-label px-3">Einwirkung Nd</label>
-         </div>
-          <div class="col-auto">
-           <input type="num9" id="num9" class="form-control" aria-describedby="num8Kasten">
-         </div>
-         <div class="col-auto">
-           <span id="num8einheit" class="form-text">
-             [kN] 
-           </span>
+    <div class="col-auto">
+      <input type="num4" id="num4" class="form-control" aria-describedby="num4Kasten">
     </div>
+    <div class="col-auto">
+      <span id="num4einheit" class="form-text">
+        [kN/m&sup2;]
+      </span>
     </div>
-    <img src="Einzelfundament.JPG" alt="Einzelfundament" class="px-3" style="width:500px;height:250px">
-    <br><br>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Ergebnisse Tragsicherheit</a>
-        </div>
-    </nav>
-    <br><br>
-    <div class="row row-cols-3 gap-2">
+  </div>
+  </div>
+  <br><br>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Systemeingabe</a>
+    </div>
+  </nav>
+  <div class="row pt-3 g-3 align-items-center">
+    <div class="col-auto">
+      <label for="num5" class="col-form-label px-3">Länge & Breite</label>
+    </div>
+    <div class="col-auto">
+      <input type="num5" id="num5" class="form-control" aria-describedby="num5Kasten">
+    </div>
+    <div class="col-auto">
+      <span id="num5einheit" class="form-text">
+        [m]
+      </span>
+    </div>
+  </div>
+  <div class="row pt-3 g-3 align-items-center">
+    <div class="col-auto">
+      <label for="num6" class="col-form-label px-3">Höhe</label>
+    </div>
+    <div class="col-auto">
+      <input type="num6" id="num6" class="form-control" aria-describedby="num6Kasten">
+    </div>
+    <div class="col-auto">
+      <span id="num6einheit" class="form-text">
+        [m]
+      </span>
+    </div>
+  </div>
+  <div class="row pt-3 g-3 align-items-center">
+    <div class="col-auto">
+      <label for="num7" class="col-form-label px-3">Überdeckung</label>
+    </div>
+    <div class="col-auto">
+      <input type="num7" id="num7" class="form-control" aria-describedby="num7Kasten">
+    </div>
+    <div class="col-auto">
+      <span id="num7einheit" class="form-text">
+        [m]
+      </span>
+    </div>
+  </div>
+  <div class="row pt-3 g-3 align-items-center">
+    <div class="col-auto">
+      <label for="num8" class="col-form-label px-3">Bewehrung</label>
+    </div>
+    <div class="col-auto">
+      <input type="num8" id="num8" class="form-control" aria-describedby="num8Kasten">
+    </div>
+    <div class="col-auto">
+      <span id="num8einheit" class="form-text">
+        [mm&sup2;/m]
+      </span>
+    </div>
+  </div>
+  <br><br>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Einwirkungen</a>
+    </div>
+  </nav>
+  <div class="row pt-3 g-3 align-items-center">
+    <div class="col-auto">
+      <label for="num9" class="col-form-label px-3">Einwirkung Nd</label>
+    </div>
+    <div class="col-auto">
+      <input type="num9" id="num9" class="form-control" aria-describedby="num8Kasten">
+    </div>
+    <div class="col-auto">
+      <span id="num8einheit" class="form-text">
+        [kN]
+      </span>
+    </div>
+  </div>
+  <br><br>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Ergebnisse Tragsicherheit</a>
+    </div>
+  </nav>
+  <br><br>
+  <div class="row row-cols-3 gap-2">
     <button type="button" class="btn btn-light" onclick="calculateMult1()">Calculate Multiplication</button>
     <div id="result1"></div>
     <br><br>
@@ -155,4 +173,5 @@
     <button type="button" class="btn btn-link" onclick="goBack()">Back to Main</button>
     <script src="../js/modul_1.js"></script>
 </body>
+
 </html>

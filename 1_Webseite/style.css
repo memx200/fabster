@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header-image {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+.logo {
+  position: absolute;
+  left: 32px;
+  top: 16px;
+}
+.container {
+  position: absolute;
+  right: 32px;
+  left: 32px;
+  top: 16px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-link {
+  color: white;
+  text-decoration: none;
+  margin-left: 32px;
+  cursor: grab;
+}
+
+.menu-link:hover {
+  text-decoration: underline;
+}
+
+.headline {
+  position: absolute;
+  left: 50px;
+  top: 300px;
+  color:white;
+  font-size: 70px;
+  width: 600px;
+  text-shadow: 5px 5px 5px rgb(0,0,0);
+}
+
+.yellow {
+  color: yellowgreen;
+}
+
+.description-section {
+  height: 500px;
+  padding: 8px;
+  display: flex;
+  gap: 50px;
+}
+
+.button {
+  background-color: yellowgreen;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px rgb(0,0,0);
+}
+
+.half-width{
+  width: 30%;
+}
+
+.quarter-width{
+  width: 40%;
+}
+
+h2 {
+  text-align: center;
+  font-size: 40px;
+}
+
+.video-container {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.youtube {
+    width: calc(100vw * 0.3);
+    height: calc(56.25vw * 0.3);
+    }
+
+@media (max-width: 700px) {
+    .description-section {
+      flex-direction: column;
+      align-items: center;
+      height: unset;
+    }
+    .half-width {
+      width: unset;
+    }
+    .navigation {
+      display: none;
+  }
+  }
