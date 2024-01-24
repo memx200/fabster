@@ -35,6 +35,36 @@ header img {
     object-fit: cover;
 }
 
+.container {
+    margin-top: 48px;
+    margin-bottom: auto;
+}
+
+.archive-box {
+    background-color: rgb(238, 236, 236);
+    text-align: center;
+    margin-bottom: auto;
+    margin-top: 48px;
+}
+
+.archive-description {
+    max-width: 600px;
+    margin: auto;
+}
+
+.card {
+    margin-top: 48px;
+    margin-bottom: auto;
+    margin: auto;
+}
+
+footer {
+    background-color: rgb(238, 236, 236);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 32px
+  }
 
 @media screen and (min-width: 1000px) {
     #teaser img {
