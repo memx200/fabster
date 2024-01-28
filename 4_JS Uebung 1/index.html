@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <script>
         function addTodo() {
+            event.preventDefault();
             todolist.innerHTML += `
             <li class="mdl-list__item">
                   <span class="mdl-list__item-primary-content">
@@ -60,7 +61,7 @@
       <main class="mdl-layout__content">
         <div class="page-content">
             <!-- Your content goes here -->
-            <form onsubmit="addTodo()">
+            <form onsubmit="addTodo(event)">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input class="mdl-textfield__input" type="text" id="todofield">
                   <label class="mdl-textfield__label" for="todofield">To do einfügen...</label>

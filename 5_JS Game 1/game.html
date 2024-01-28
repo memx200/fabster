@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacegame</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        let KEY_SPACE = false; // 32
+        let KEY_UP = false; // 38
+        let KEY_DOWN = false; // 40
+        let canvas;
+        let ctx;
+        let Backgroundimage = new Image();
+
+        let rocket = {
+            x: 100,
+            y: 200,
+            width: 200,
+            heigtht: 80,
+            src: 'images/Ship.png'
+        }
+
+        let ufo = {
+            x: 500,
+            y: 200,
+            width: 100,
+            heigtht: 40,
+            src: 'images/Ufo.png'
+        }
+
+        document.onkeydown = function(e) {
+            if (e.keyCode == 32) { // Leertaste gedrückt
+                KEY_SPACE = true;
+            }
+        }
+
+        document.onkeydown = function(e) {
+            if (e.keyCode == 38) { // Nach oben gedrückt
+                KEY_UP = true;
+            }
+        }
+
+        document.onkeydown = function(e) {
+            if (e.keyCode == 40) { // Nach unten gedrückt
+                KEY_DOWN = true;
+            }
+        }
+
+        document.onkeydown = function(e) {
+            if (e.keyCode == 32) { // Leertaste losgelassen
+                KEY_SPACE = false;
+            }
+        }
+
+        document.onkeydown = function(e) {
+            if (e.keyCode == 38) { // Nach oben losgelassen
+                KEY_UP = false;
+            }
+        }
+
+        document.onkeydown = function(e) {
+            if (e.keyCode == 40) { // Nach unten losgelassen
+                KEY_DOWN = false;
+            }
+        }
+
+        function startGame() {
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            loadImage();
+            draw();
+            // calculate
+        }
+
+        function loadImage(){
+            Backgroundimage.src = 'images/Background.png';
+            rocket.img = new Image();
+            rockeck.img.src = rocket.src;
+
+            ufo.img = Images();
+            ufo.img.src = ufo.src;
+        }
+
+        function loadImage() {
+
+        }
+
+        function draw() {
+            ctx.drawImage(backgroundImage, 0, 0);
+            ctx.drawImage(rocket.img, rocket.x, rocket.y, rocket.width, rocket.height);
+
+
+            requestAnimationFrame(draw)
+        }
+    </script>
+</head>
+
+<body onload="startGame()">
+    <canvas id="canvas" width="960px" height="720px"></canvas>
+</body>
+</html>
