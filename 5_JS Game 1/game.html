@@ -102,9 +102,12 @@
       }
 
       function createUfos() {
+        // Zufällige Y-Koordinate im Bereich von 0 bis canvas.height - UFO height
+        const randomY = Math.floor(Math.random() * (canvas.height - 40));
+
         ufos.push({
           x: 800,
-          y: 360,
+          y: randomY,
           width: 100,
           height: 40,
           src: "images/Ufo.png",
