@@ -1,102 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spacegame</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script>
-        let KEY_SPACE = false; // 32
-        let KEY_UP = false; // 38
-        let KEY_DOWN = false; // 40
-        let canvas;
-        let ctx;
-        let Backgroundimage = new Image();
+      let KEY_SPACE = false; // 32
+      let KEY_UP = false; // 38
+      let KEY_DOWN = false; // 40
+      let canvas;
+      let ctx;
+      let backgroundImage = new Image();
 
-        let rocket = {
-            x: 100,
-            y: 200,
-            width: 200,
-            heigtht: 80,
-            src: 'images/Ship.png'
+      let rocket = {
+        x: 50,
+        y: 360,
+        width: 100,
+        height: 50,
+        src: "images/Ship.png",
+        img: new Image(), // create an Image object for the rocket
+      };
+
+      let ufos = [
+        {
+          x: 800,
+          y: 360,
+          width: 100,
+          height: 40,
+          src: "images/Ufo.png",
+          img: new Image(), // create an Image object for each UFO
+        },
+      ];
+
+      document.onkeydown = function (e) {
+        if (e.keyCode == 32) {
+          // Leertaste gedrückt
+          KEY_SPACE = true;
+        } else if (e.keyCode == 38) {
+          // Nach oben gedrückt
+          KEY_UP = true;
+        } else if (e.keyCode == 40) {
+          // Nach unten gedrückt
+          KEY_DOWN = true;
+        }
+      };
+
+      document.onkeyup = function (e) {
+        if (e.keyCode == 32) {
+          // Leertaste losgelassen
+          KEY_SPACE = false;
+        } else if (e.keyCode == 38) {
+          // Nach oben losgelassen
+          KEY_UP = false;
+        } else if (e.keyCode == 40) {
+          // Nach unten losgelassen
+          KEY_DOWN = false;
+        }
+      };
+
+      function startGame() {
+        canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d");
+        loadImage();
+        setInterval(update, 1000 / 25);
+        setInterval(createUfos, 5000);
+        setInterval(checkForCollion, 1000 / 25)
+        draw();
+        // calculate
+      }
+
+      function checkForCollion() {
+      ufos.forEach(function (ufo) {
+         // Kontrollieren, ob UFO mit Rakete kollidiert
+        if (
+            rocket.x < ufo.x + ufo.width &&
+            rocket.x + rocket.width > ufo.x &&
+            rocket.y < ufo.y + ufo.height &&
+            rocket.y + rocket.height > ufo.y
+        ) {
+            rocket.img.src = 'images/boom.png';
+            // Rakete explodiert bei Kollision
+            console.log('Collision!!!')
+            ufos = ufos.filter(u => u != ufo);  
+            // Ufo verschwindet bei Kollision
+        }
+    });
+}
+
+      function update() {
+        if (KEY_UP) {
+          rocket.y -= 4;
+        }
+        if (KEY_DOWN) {
+          rocket.y += 4;
         }
 
-        let ufo = {
-            x: 500,
-            y: 200,
-            width: 100,
-            heigtht: 40,
-            src: 'images/Ufo.png'
-        }
+        ufos.forEach(function (ufo) {
+          ufo.x -= 8;
+        });
+      }
 
-        document.onkeydown = function(e) {
-            if (e.keyCode == 32) { // Leertaste gedrückt
-                KEY_SPACE = true;
-            }
-        }
+      function createUfos() {
+        ufos.push({
+          x: 800,
+          y: 360,
+          width: 100,
+          height: 40,
+          src: "images/Ufo.png",
+          img: new Image(),
+        });
+        ufos[ufos.length - 1].img.src = ufos[ufos.length - 1].src;
+      }
 
-        document.onkeydown = function(e) {
-            if (e.keyCode == 38) { // Nach oben gedrückt
-                KEY_UP = true;
-            }
-        }
+      function loadImage() {
+        backgroundImage.src = "images/Background.jpg";
+        rocket.img.src = rocket.src;
+        ufos.forEach((ufo) => {
+          ufo.img.src = ufo.src;
+        });
+      }
 
-        document.onkeydown = function(e) {
-            if (e.keyCode == 40) { // Nach unten gedrückt
-                KEY_DOWN = true;
-            }
-        }
+      function draw() {
+        ctx.drawImage(backgroundImage, 0, 0);
+        ctx.drawImage(
+          rocket.img,
+          rocket.x,
+          rocket.y,
+          rocket.width,
+          rocket.height
+        );
 
-        document.onkeydown = function(e) {
-            if (e.keyCode == 32) { // Leertaste losgelassen
-                KEY_SPACE = false;
-            }
-        }
+        // draw all UFOs
+        ufos.forEach((ufo) => {
+          // Ensure the image is loaded before drawing
+          if (ufo.img.complete) {
+            ctx.drawImage(ufo.img, ufo.x, ufo.y, ufo.width, ufo.height);
+          }
+        });
 
-        document.onkeydown = function(e) {
-            if (e.keyCode == 38) { // Nach oben losgelassen
-                KEY_UP = false;
-            }
-        }
-
-        document.onkeydown = function(e) {
-            if (e.keyCode == 40) { // Nach unten losgelassen
-                KEY_DOWN = false;
-            }
-        }
-
-        function startGame() {
-            canvas = document.getElementById('canvas');
-            ctx = canvas.getContext('2d');
-            loadImage();
-            draw();
-            // calculate
-        }
-
-        function loadImage(){
-            Backgroundimage.src = 'images/Background.png';
-            rocket.img = new Image();
-            rockeck.img.src = rocket.src;
-
-            ufo.img = Images();
-            ufo.img.src = ufo.src;
-        }
-
-        function loadImage() {
-
-        }
-
-        function draw() {
-            ctx.drawImage(backgroundImage, 0, 0);
-            ctx.drawImage(rocket.img, rocket.x, rocket.y, rocket.width, rocket.height);
-
-
-            requestAnimationFrame(draw)
-        }
+        requestAnimationFrame(draw);
+      }
     </script>
-</head>
+  </head>
 
-<body onload="startGame()">
-    <canvas id="canvas" width="960px" height="720px"></canvas>
-</body>
+  <body onload="startGame()">
+    <canvas id="canvas" width="960" height="720"></canvas>
+  </body>
 </html>
