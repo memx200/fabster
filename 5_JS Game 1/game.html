@@ -2,9 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
     <title>Spacegame</title>
     <link rel="stylesheet" href="style.css" />
+
+    <div id="controls">
+      <button id="btnUp">
+        <img
+          id="btnUp"
+          src="images/up-arrow.png"
+          alt="Up"
+          height="32px"
+          width="32px"
+        />
+      </button>
+      <button id="btnDown">
+        <img
+          id="btnUp"
+          src="images/down-arrow.png"
+          alt="Up"
+          height="32px"
+          width="32px"
+        />
+      </button>
+    </div>
+
     <script>
       let KEY_SPACE = false; // 32
       let KEY_UP = false; // 38
@@ -34,6 +59,34 @@
           img: new Image(), // create an Image object for each UFO
         },
       ];
+
+      let btnUp = document.getElementById("btnUp");
+      let btnDown = document.getElementById("btnDown");
+      let btnSpace = document.getElementById("btnSpace");
+
+      btnUp.addEventListener("touchstart", function () {
+        KEY_UP = true;
+      });
+
+      btnUp.addEventListener("touchend", function () {
+        KEY_UP = false;
+      });
+
+      btnDown.addEventListener("touchstart", function () {
+        KEY_DOWN = true;
+      });
+
+      btnDown.addEventListener("touchend", function () {
+        KEY_DOWN = false;
+      });
+
+      btnSpace.addEventListener("touchstart", function () {
+        KEY_SPACE = true;
+      });
+
+      btnSpace.addEventListener("touchend", function () {
+        KEY_SPACE = false;
+      });
 
       document.onkeydown = function (e) {
         if (e.keyCode == 32) {
@@ -73,6 +126,13 @@
         // calculate
       }
 
+      function setCanvasSize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      window.addEventListener("resize", setCanvasSize);
+
       function checkForCollion() {
         ufos.forEach(function (ufo) {
           // Kontrollieren, ob UFO mit Rakete kollidiert
@@ -101,7 +161,7 @@
               console.log("Collion!!!");
 
               shot.hit = true;
-              shot.img.src = ""
+              shot.img.src = "";
               console.log("Collion!!!");
 
               setTimeout(() => {
@@ -118,17 +178,16 @@
       function checkForShoot() {
         if (KEY_SPACE) {
           let newShot = {
-            x: rocket.x + 110,
-            y: rocket.y + 22,
+            x: rocket.x + rocket.width,
+            y: rocket.y + rocket.height / 2,
             width: 20,
             height: 4,
             src: "images/Shot.png",
             img: new Image(),
           };
-          newShot.img.src = newShot.src; // Laden Sie das Bild für den Schuss.
+          newShot.img.src = newShot.src;
 
-          shot.push(newShot); // Fügen Sie den neuen Schuss zum Array hinzu
-          KEY_SPACE = false; // Setzen Sie die Taste zurück, um nur einen Schuss pro Tastendruck zu erzeugen
+          shot.push(newShot);
         }
       }
 
