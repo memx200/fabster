@@ -12,4 +12,16 @@ canvas {
   #btnUp, #btnDown {
     margin-bottom: 10px;
   }
+  #btnSpace {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  #btnSpace img {
+    height:64px;
+    width: 64px;
+    margin-left: 64px;
+  }
   

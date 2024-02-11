@@ -11,24 +11,16 @@
 
     <div id="controls">
       <button id="btnUp">
-        <img
-          id="btnUp"
-          src="images/up-arrow.png"
-          alt="Up"
-          height="32px"
-          width="32px"
-        />
+        <img src="images/up-arrow.png" alt="Up" height="32px" width="32px" />
       </button>
       <button id="btnDown">
-        <img
-          id="btnUp"
-          src="images/down-arrow.png"
-          alt="Up"
-          height="32px"
-          width="32px"
-        />
+        <img src="images/down-arrow.png" alt="Down" height="32px" width="32px" />
       </button>
     </div>
+    <button id="btnSpace">
+      <img src="images/Shot.png" alt="Space"/>
+    </button>
+    <canvas id="canvas" width="960" height="720"></canvas>
 
     <script>
       let KEY_SPACE = false; // 32
@@ -80,13 +72,21 @@
         KEY_DOWN = false;
       });
 
-      btnSpace.addEventListener("touchstart", function () {
-        KEY_SPACE = true;
-      });
+      document.addEventListener('DOMContentLoaded', function() {
+  let btnSpace = document.getElementById('btnSpace');
 
-      btnSpace.addEventListener("touchend", function () {
-        KEY_SPACE = false;
-      });
+  if (btnSpace) {
+    btnSpace.addEventListener('touchstart', function() {
+      KEY_SPACE = true;
+    });
+
+    btnSpace.addEventListener('touchend', function() {
+      KEY_SPACE = false;
+    });
+  } else {
+    console.error("Element with ID 'btnSpace' not found");
+  }
+});
 
       document.onkeydown = function (e) {
         if (e.keyCode == 32) {
@@ -167,9 +167,6 @@
               setTimeout(() => {
                 ufos = ufos.filter((u) => u != ufo);
               }, 500);
-              setTimeout(() => {
-                shot = shot.filter((u) => u != shot);
-              }, 0);
             }
           });
         });
@@ -188,6 +185,7 @@
           newShot.img.src = newShot.src;
 
           shot.push(newShot);
+          KEY_SPACE = false; // Setzen Sie die Taste zurück, um nur einen Schuss pro Tastendruck zu erzeugen
         }
       }
 
