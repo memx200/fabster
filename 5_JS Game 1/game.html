@@ -22,6 +22,8 @@
         img: new Image(), // create an Image object for the rocket
       };
 
+      let shot = []; // changed to an array for multiple shots
+
       let ufos = [
         {
           x: 800,
@@ -65,39 +67,83 @@
         loadImage();
         setInterval(update, 1000 / 25);
         setInterval(createUfos, 5000);
-        setInterval(checkForCollion, 1000 / 25)
+        setInterval(checkForCollion, 1000 / 25);
+        setInterval(checkForShoot, 1000 / 10);
         draw();
         // calculate
       }
 
       function checkForCollion() {
-      ufos.forEach(function (ufo) {
-         // Kontrollieren, ob UFO mit Rakete kollidiert
-        if (
+        ufos.forEach(function (ufo) {
+          // Kontrollieren, ob UFO mit Rakete kollidiert
+          if (
             rocket.x < ufo.x + ufo.width &&
             rocket.x + rocket.width > ufo.x &&
             rocket.y < ufo.y + ufo.height &&
             rocket.y + rocket.height > ufo.y
-        ) {
-            rocket.img.src = 'images/boom.png';
+          ) {
+            rocket.img.src = "images/boom.png";
             // Rakete explodiert bei Kollision
-            console.log('Collision!!!')
-            ufos = ufos.filter(u => u != ufo);  
+            console.log("Collision!!!");
+            ufos = ufos.filter((u) => u != ufo);
             // Ufo verschwindet bei Kollision
+          }
+          shot.forEach(function (shot) {
+            // Kontrollieren, ob Laser mit Rakete kollidiert
+            if (
+              shot.x + shot.width > ufo.x &&
+              shot.y + shot.height > ufo.y &&
+              shot.x < ufo.x &&
+              shot.y < ufo.y + ufo.height
+            ) {
+              ufo.hit = true;
+              ufo.img.src = "images/boom.png";
+              console.log("Collion!!!");
+
+              shot.hit = true;
+              shot.img.src = ""
+              console.log("Collion!!!");
+
+              setTimeout(() => {
+                ufos = ufos.filter((u) => u != ufo);
+              }, 500);
+              setTimeout(() => {
+                shot = shot.filter((u) => u != shot);
+              }, 0);
+            }
+          });
+        });
+      }
+
+      function checkForShoot() {
+        if (KEY_SPACE) {
+          let newShot = {
+            x: rocket.x + 110,
+            y: rocket.y + 22,
+            width: 20,
+            height: 4,
+            src: "images/Shot.png",
+            img: new Image(),
+          };
+          newShot.img.src = newShot.src; // Laden Sie das Bild für den Schuss.
+
+          shot.push(newShot); // Fügen Sie den neuen Schuss zum Array hinzu
+          KEY_SPACE = false; // Setzen Sie die Taste zurück, um nur einen Schuss pro Tastendruck zu erzeugen
         }
-    });
-}
+      }
 
       function update() {
         if (KEY_UP) {
-          rocket.y -= 4;
+          rocket.y -= 10;
         }
         if (KEY_DOWN) {
-          rocket.y += 4;
+          rocket.y += 10;
         }
-
         ufos.forEach(function (ufo) {
-          ufo.x -= 8;
+          ufo.x -= 5;
+        });
+        shot.forEach(function (shot) {
+          shot.x += 15;
         });
       }
 
@@ -140,6 +186,10 @@
           if (ufo.img.complete) {
             ctx.drawImage(ufo.img, ufo.x, ufo.y, ufo.width, ufo.height);
           }
+        });
+
+        shot.forEach(function (shot) {
+          ctx.drawImage(shot.img, shot.x, shot.y, shot.width, shot.height);
         });
 
         requestAnimationFrame(draw);
