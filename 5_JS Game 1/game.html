@@ -14,11 +14,16 @@
         <img src="images/up-arrow.png" alt="Up" height="32px" width="32px" />
       </button>
       <button id="btnDown">
-        <img src="images/down-arrow.png" alt="Down" height="32px" width="32px" />
+        <img
+          src="images/down-arrow.png"
+          alt="Down"
+          height="32px"
+          width="32px"
+        />
       </button>
     </div>
     <button id="btnSpace">
-      <img src="images/Shot.png" alt="Space"/>
+      <img src="images/Shot.png" alt="Space" />
     </button>
     <canvas id="canvas" width="960" height="720"></canvas>
 
@@ -72,21 +77,21 @@
         KEY_DOWN = false;
       });
 
-      document.addEventListener('DOMContentLoaded', function() {
-  let btnSpace = document.getElementById('btnSpace');
+      document.addEventListener("DOMContentLoaded", function () {
+        let btnSpace = document.getElementById("btnSpace");
 
-  if (btnSpace) {
-    btnSpace.addEventListener('touchstart', function() {
-      KEY_SPACE = true;
-    });
+        if (btnSpace) {
+          btnSpace.addEventListener("touchstart", function () {
+            KEY_SPACE = true;
+          });
 
-    btnSpace.addEventListener('touchend', function() {
-      KEY_SPACE = false;
-    });
-  } else {
-    console.error("Element with ID 'btnSpace' not found");
-  }
-});
+          btnSpace.addEventListener("touchend", function () {
+            KEY_SPACE = false;
+          });
+        } else {
+          console.error("Element with ID 'btnSpace' not found");
+        }
+      });
 
       document.onkeydown = function (e) {
         if (e.keyCode == 32) {
@@ -253,8 +258,5 @@
       }
     </script>
   </head>
-
-  <body onload="startGame()">
-    <canvas id="canvas" width="960" height="720"></canvas>
-  </body>
+  <body onload="startGame()"></body>
 </html>

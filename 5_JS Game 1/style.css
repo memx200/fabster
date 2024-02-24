@@ -24,4 +24,11 @@ canvas {
     width: 64px;
     margin-left: 64px;
   }
+
+  @media screen and (max-width: 800px) {
+    #canvas {
+        height: 360px;
+        width: 480px;
+    }
+}
   
