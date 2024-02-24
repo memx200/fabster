@@ -61,19 +61,23 @@
       let btnDown = document.getElementById("btnDown");
       let btnSpace = document.getElementById("btnSpace");
 
-      btnUp.addEventListener("touchstart", function () {
+      btnUp.addEventListener("touchstart", function (event) {
+        event.preventDefault(); // Verhindert das Standardverhalten des Browsers
         KEY_UP = true;
       });
 
-      btnUp.addEventListener("touchend", function () {
+      btnUp.addEventListener("touchend", function (event) {
+        event.preventDefault(); // Verhindert das Standardverhalten des Browsers
         KEY_UP = false;
       });
 
-      btnDown.addEventListener("touchstart", function () {
+      btnDown.addEventListener("touchstart", function (event) {
+        event.preventDefault(); // Verhindert das Standardverhalten des Browsers
         KEY_DOWN = true;
       });
 
-      btnDown.addEventListener("touchend", function () {
+      btnDown.addEventListener("touchend", function (event) {
+        event.preventDefault(); // Verhindert das Standardverhalten des Browsers
         KEY_DOWN = false;
       });
 
@@ -81,17 +85,20 @@
         let btnSpace = document.getElementById("btnSpace");
 
         if (btnSpace) {
-          btnSpace.addEventListener("touchstart", function () {
+          btnSpace.addEventListener("touchstart", function (event) {
+            event.preventDefault(); // Verhindert das Standardverhalten des Browsers
             KEY_SPACE = true;
           });
 
-          btnSpace.addEventListener("touchend", function () {
+          btnSpace.addEventListener("touchend", function (event) {
+            event.preventDefault(); // Verhindert das Standardverhalten des Browsers
             KEY_SPACE = false;
           });
         } else {
           console.error("Element with ID 'btnSpace' not found");
         }
       });
+      
 
       document.onkeydown = function (e) {
         if (e.keyCode == 32) {
